@@ -6,6 +6,7 @@ import Register from "./pages/public/auth/Register";
 import ForgotPassword from "./pages/public/auth/ForgotPassword";
 import ResetPassword from "./pages/public/auth/ResetPassword";
 import Protected from "./security/Protected";
+import AdminProtected from "./security/AdminProtected";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
 
         {/*PUBLIC ROUTES*/}
           <Route path={''} element={<Navigate to={'auth'} replace />} />
+          <Route path={'admin'} element={<AdminProtected></AdminProtected>}>
+
+          </Route>
           {/*AUTHENTICATION*/}
           <Route path={'auth'} element={<AuthLayout/>}>
               <Route index element={<Navigate to={'login'} />}/>
@@ -22,7 +26,6 @@ function App() {
               <Route path={'register'} element={<Register/>}/>
               <Route path={'forgot-password'} element={<ForgotPassword/>}/>
               <Route path={'reset-password'} element={<ResetPassword/>}/>
-
           </Route>
       </Routes>
     </div>

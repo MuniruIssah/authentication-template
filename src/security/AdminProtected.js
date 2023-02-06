@@ -9,7 +9,7 @@ const AdminProtected = ({children}) => {
     const [role]=useAtom(roleAtom)
 
     //GO BACK TO SAFETY
-    if(role.toUpperCase()==="ADMIN") return navigate(-1,{replace:true})
+    if(!role.toUpperCase()==="ADMIN") return navigate(-1,{replace:true})
 
     //RENDER CONTENT
     return children;
